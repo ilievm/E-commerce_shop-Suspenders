@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <!--
@@ -10,8 +10,10 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet">
-
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300"
+      rel="stylesheet"
+    />
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -24,6 +26,68 @@
     <title>React App</title>
   </head>
   <body>
+    <script src="pixi.js"></script>
+    <script>
+      let app = new PIXI.Application({ autoResize: true,
+                                      resolution: devicePixelRatio  });
+      document.body.appendChild(app.view);
+      // add and append the canvas
+
+      let img = new PIXI.Sprite.from("background1.jpeg");
+      // add the background
+
+      // img.width = window.innerWidth;
+      // img.height= window.innerHeight;
+      app.stage.addChild(img);
+
+      depthMap= new PIXI.Sprite.from("background1_depthFB.png");
+      app.stage.addChild(depthMap);
+      displacementFilter = new PIXI.filters.DisplacementFilter(depthMap);
+      app.stage.filters = [displacementFilter];
+
+      window.onmousemove = function (e) {
+          displacementFilter.scale.x = (window.innerWidth / 2 - e.clientX) / 25;
+          displacementFilter.scale.y = (window.innerHeight / 2 - e.clientY) / 25;
+        };
+
+      window.addEventListener('resize', resize);
+      // add event listener to resize window to change the size
+
+// Resize function window
+function resize() {
+	// Resize the renderer
+	app.renderer.resize(window.innerWidth, window.innerHeight);
+  
+  // You can use the 'screen' property as the renderer visible
+  // area, this is more useful than view.width/height because
+  // it handles resolution
+  img.position.set(0, 0);
+        // img.width = window.innerWidth;
+      if (window.innerWidth>=window.innerHeight*1.5) { 
+        img.width = window.innerWidth;
+        img.height= window.innerWidth/1.5;
+      } else {
+        img.width = window.innerHeight*1.5;
+        img.height= window.innerHeight;
+        img.position.set(-(((window.innerHeight*1.5)-window.innerWidth))/2, 0)
+        // deviding in half the differrence in height and width adjusted to the picture aspect ratio (1.5) so both sides are taken from the picture simultaneously
+      }
+  depthMap.position.set(0, 0);
+        // depthMap.width = window.innerWidth;
+      if (window.innerWidth>=window.innerHeight*1.5) { 
+        depthMap.width = window.innerWidth;
+        depthMap.height= window.innerWidth/1.5;
+      } else {
+        depthMap.width = window.innerHeight*1.5;
+        depthMap.height= window.innerHeight;
+        depthMap.position.set(-(((window.innerHeight*1.5)-window.innerWidth))/2, 0)
+        // deviding in half the differrence in height and width adjusted to the picture aspect ratio (1.5) so both sides are taken from the picture simultaneously
+      }
+
+}
+
+resize();
+    </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--

@@ -1,0 +1,7 @@
+resizing th ewindow: originally image was stretched and didn't follow original resolution.
+lack of stock functions on documentation made it difficult
+it doesn't work with react 16 and barely works with react 15 with 3d party packages, not the original one.
+ I was trying to resize canvas and it was difficult but when i finally managed to do this only canvas was resizing not the image and it became black
+image size didn't correspond to canvas size
+then formula to keep one side and devide other side based on window size
+and then another fornula to keep it centered

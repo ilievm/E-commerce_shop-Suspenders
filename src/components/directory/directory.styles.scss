@@ -1,6 +1,119 @@
 .directory-menu {
   width: 100%;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+}
+
+.points {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../assets/pointers.png");
+  background-size: cover;
+  background-position: center;
+  margin-top: 10vh;
+  display: flex;
+  // align-items: center;
+  // justify-content: center;
+
+}
+
+.mainTextFirst {
+  margin-top: 11vh;
+}
+
+
+$size: 20px;
+
+.mainTextFirst h1 {
+  font-family: 'Bungee Shade', cursive;
+  background: #ffed94; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  font-weight: normal;
+  width: 100%;
+  text-align: center;
+  line-height: 17vh;
+  font-size: 5.5vw;
+  margin: 0;
+  background: linear-gradient(
+      -45deg, 
+      #ffffff 25%, 
+      #feac5e 25%, 
+      #feac5e 50%, 
+      #fff 50%, 
+      #fff 75%, 
+      #feac5e 75%, 
+      #feac5e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: $size $size;
+  background-position: 0 0;
+  animation: stripes 1s linear infinite;
+}   
+
+@keyframes stripes {
+  100% { 
+      background-position: $size 0, $size 0, $size 0;
+  }
+}
+
+.mainTextLast h1 {
+  margin: 0;
+	text-align: center;
+  	font-size: 6.5vw;
+	position: relative;
+	font-weight: 900;
+	text-transform: uppercase;
+	line-height: 1;
+	
+	// This is important, we need the h1 to be invisible.	
+	color: transparent;
+
+	
+	&:focus {
+		outline: none;
+	}
+ }
+
+.mainTextLast h1::before, .mainTextLast h1::after {
+	content: attr(data-heading);
+	position: absolute;
+	top: 0;
+	left: 0;	
+}
+
+// Clip path to slice the text.
+.mainTextLast h1::before {
+	color: cyan;
+	clip-path: polygon(0% 100%, 100% 100%, 100% 40%, 0 60%)
+}
+
+.mainTextLast h1::after {
+	color: white;
+	clip-path: polygon(0 0, 100% 0%, 100% 36%, 0 56%);
+	animation: slide 5s infinite;
+}
+
+
+// Move it.
+@keyframes slide {
+	0% {
+		transform: translateX(0);
+	}
+	50% {
+		transform: translate(-20px, 2%);
+	}
+}
+
+@media only screen and (max-width: 1650px) {
+  .points {
+    background-image: none;
+  }
 }

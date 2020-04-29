@@ -14,9 +14,8 @@ const Directory = ({ sections }) => (
       <h1 data-heading="Slide">Live <br/> your </h1>
     </div>
     <div className="mainTextLast">
-      <h1 contenteditable data-heading="Lifestyle">Lifestyle</h1>
+      <h1 data-heading="Lifestyle">Lifestyle</h1>
     </div>
-    <div className="points"></div>
     {sections.map(({ id, ...otherSectionProps }) => (
       <MenuItem key={id} {...otherSectionProps} />
     ))}

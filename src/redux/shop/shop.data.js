@@ -17,12 +17,6 @@ const SHOP_DATA = {
         price: 18
       },
       {
-        id: 3,
-        name: 'Brown Cowboy',
-        imageUrl: 'https://i.ibb.co/QdJwgmp/brown-cowboy.png',
-        price: 35
-      },
-      {
         id: 4,
         name: 'Grey Brim',
         imageUrl: 'https://i.ibb.co/RjBLWxB/grey-brim.png',

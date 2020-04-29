@@ -5,6 +5,8 @@
   flex-direction: column;
   align-items: center;
   margin: 50px auto 0;
+  font-family: 'Roboto', sans-serif;
+  
 
   .checkout-header {
     width: 100%;
@@ -12,6 +14,8 @@
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid darkgrey;
+    background-color: rgba(54, 37, 29, 0.411);
+    color: whitesmoke;
 
     .header-block {
       text-transform: capitalize;
@@ -27,5 +31,7 @@
     margin-top: 30px;
     margin-left: auto;
     font-size: 36px;
+    color: grayscale($color: #949494);
+    background-color: #0586ff1a;
   }
 }

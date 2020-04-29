@@ -1,5 +1,4 @@
 .menu-item {
-  flex: 1 1 auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,25 +7,27 @@
   overflow: hidden;
 
   &.hats {
+    width: 14%;
+    height: 16%;
     position: absolute;
-    top: 10%;
-    right: 10%;;
+    top: 9%;
+    left: 38%;
   }
 
   &.jackets {
-    width: 15%;
-    height: 20%;
+    width: 19%;
+    height: 23%;
     position: absolute;
     top:15%;
-    left: 7%;
+    left: 6%;
   }
 
   &.sneakers {
-    width: 15%;
-    height: 20%;
+    width: 19%;
+    height: 23%;
     position: absolute;
     top:60%;
-    left: 12%;
+    left: 10%;
   }
 
   &.womens {
@@ -50,7 +51,7 @@
 
     & .background-image {
       transform: scale(1.1);
-      transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+      transition: transform 4.5s cubic-bezier(0.25, 0.45, 0.45, 0.95);
     }
 
     & .content {
@@ -92,13 +93,74 @@
     .title {
       font-weight: bold;
       margin: 0 6px 0;
-      font-size: 22px;
+      font-size: 26px;
       color: #4a4a4a;
     }
 
     .subtitle {
       font-weight: lighter;
       font-size: 16px;
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  
+  body {
+    overflow: hidden;
+  }
+
+  canvas {
+    display: none;
+  }
+
+  .menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    overflow: hidden;
+  
+    &.hats {
+      left: -5px;
+      top: 85%;
+      width: 99%;
+      height: 15%;
+  
+    }
+  
+    &.jackets {
+      left: -5px;
+      top: 53%;
+      width: 99%;
+      height: 16%;
+    }
+  
+    &.sneakers {
+      left: -5px;
+      top: 69%;
+      width: 99%;
+      height: 16%;
+  
+    }
+  
+    &.womens {
+      left: -5px;
+      top: 7%;
+      width: 99%;
+      height: 23%;
+    }
+  
+    &.mens {
+      left: -5px;
+      top: 30%;
+      width: 99%;
+      height: 23%;
+    }
+
+    .background-image {
+      background-position: top;
     }
   }
 }

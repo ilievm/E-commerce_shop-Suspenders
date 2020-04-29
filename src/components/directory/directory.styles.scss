@@ -7,22 +7,13 @@
   align-items: center;
 }
 
-.points {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-image: url("../../assets/pointers.png");
-  background-size: cover;
-  background-position: center;
-  margin-top: 10vh;
-  display: flex;
-  // align-items: center;
-  // justify-content: center;
-
-}
 
 .mainTextFirst {
-  margin-top: 11vh;
+  margin-top: 17vh;
+}
+
+.mainTextLast {
+  margin-top: 4vh;
 }
 
 
@@ -65,6 +56,7 @@ $size: 20px;
 }
 
 .mainTextLast h1 {
+  font-family: 'Roboto', sans-serif;
   margin: 0;
 	text-align: center;
   	font-size: 6.5vw;
@@ -112,7 +104,7 @@ $size: 20px;
 	}
 }
 
-@media only screen and (max-width: 1650px) {
+@media only screen and (max-width: 1700px) {
   .points {
     background-image: none;
   }
